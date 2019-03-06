@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lucky Lotto numbers</title>
+    <link href="https://fonts.googleapis.com/css?family=Coiny|Quicksand:700&amp;subset=latin-ext" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="main">
+    <div class="wrapper">
+        <h3 class="title">Twoje szczęśliwe numery Lotto to:</h3>
+        <div class="container">
+            <div class="ball" id="ball0">
+                <p>?</p>
+            </div>
+            <div class="ball" id="ball1">
+                <p>?</p>
+            </div>
+            <div class="ball" id="ball2">
+                <p>?</p>
+            </div>
+            <div class="ball" id="ball3">
+                <p>?</p>
+            </div>
+            <div class="ball" id="ball4">
+                <p>?</p>
+            </div>
+            <div class="ball" id="ball5">
+                <p>?</p>
+            </div>
+        </div>
+        <button class="btn">Losuj liczby</button>
+    </div>
+
+    <script>
+        function LottoNumbers() {
+
+            let numbers = [];
+            for (let i = 0; i < 6; i++) {
+                let number = Math.floor((Math.random() * 48) + 1);
+                if (numbers.indexOf(number) == -1) {
+                    numbers.push(number);
+                    document.getElementById("ball" + i).innerHTML = numbers[i];
+                } else {
+                    i--;
+                }
+            }
+        }
+
+        document.querySelector('.btn').addEventListener('click', LottoNumbers);
+    </script>
+
+</body>
+
+</html>
